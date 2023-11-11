@@ -1,13 +1,15 @@
 # k3d-claymore
-```
- __   ___  _______  ________        ______   ___            __       ___  ___  ___      ___     ______     _______    _______  
-|/"| /  ")/" __   )|"      "\      /" _  "\ |"  |          /""\     |"  \/"  ||"  \    /"  |   /    " \   /"      \  /"     "| 
-(: |/   /(__/ _) ./(.  ___  :)    (: ( \___)||  |         /    \     \   \  /  \   \  //   |  // ____  \ |:        |(: ______) 
-|    __/     /  // |: \   ) ||     \/ \     |:  |        /' /\  \     \\  \/   /\\  \/.    | /  /    ) :)|_____/   ) \/    |   
-(// _  \  __ \_ \\ (| (___\ ||     //  \ _   \  |___    //  __'  \    /   /   |: \.        |(: (____/ //  //      /  // ___)_  
-|: | \  \(: \__) :\|:       :)    (:   _) \ ( \_|:  \  /   /  \\  \  /   /    |.  \    /:  | \        /  |:  __   \ (:      "| 
-(__|  \__)\_______)(________/      \_______) \_______)(___/    \___)|___/     |___|\__/|___|  \"_____/   |__|  \___) \_______) 
-
+```                                                                                                          
+                         ,,               ,,                                                              
+`7MM                   `7MM             `7MM                                                              
+  MM                     MM               MM                                                              
+  MM  ,MP'pd""b.    ,M""bMM       ,p6"bo  MM   ,6"Yb.`7M'   `MF'`7MMpMMMb.pMMMb.  ,pW"Wq.`7Mb,od8 .gP"Ya  
+  MM ;Y  (O)  `8b ,AP    MM      6M'  OO  MM  8)   MM  VA   ,V    MM    MM    MM 6W'   `Wb MM' "',M'   Yb 
+  MM;Mm       ,89 8MI    MM      8M       MM   ,pm9MM   VA ,V     MM    MM    MM 8M     M8 MM    8M"""""" 
+  MM `Mb.   ""Yb. `Mb    MM      YM.    , MM  8M   MM    VVV      MM    MM    MM YA.   ,A9 MM    YM.    , 
+.JMML. YA.     88  `Wbmd"MML.     YMbmd'.JMML.`Moo9^Yo.  ,V     .JMML  JMML  JMML.`Ybmd9'.JMML.   `Mbmmd' 
+         (O)  .M'                                       ,V                                                
+          bmmmd'                                     OOb"                                                 
 ```
 This repo is for creating a local k3d cluster with two nodes and rancher using Helm.
 
