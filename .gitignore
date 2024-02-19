@@ -1,8 +1,7 @@
 .terraform*
-terraform.tfstate*
 .terraform*
 terraform.tfstate*
 *.pem
 .DS_Store
 helm-charts/**/charts
-.kube
+.kube/*
