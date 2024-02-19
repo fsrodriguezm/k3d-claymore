@@ -24,3 +24,6 @@ This repo is for creating a local k3d cluster with two nodes and rancher using H
 ## Read more
 
 ## Reference
+
+https://medium.com/47billion/playing-with-kubernetes-using-k3d-and-rancher-78126d341d23
+https://docs.docker.com/desktop/release-notes/#4210

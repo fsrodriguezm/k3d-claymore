@@ -1,0 +1,13 @@
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+metadata:
+  name: claymore
+servers: 1
+agents: 2
+ports:
+  - port: 8901:30081
+    nodeFilters:
+      - agent:0
+  - port: 8902:30082
+    nodeFilters:
+      - agent:0

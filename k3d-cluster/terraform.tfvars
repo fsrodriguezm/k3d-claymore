@@ -1,4 +1,4 @@
-k3d_cluster_name    = ["cluster"]
+k3d_cluster_name    = ["claymore"]
 k3d_cluster_port    = 6550
 k3d_cluster_ip      = "127.0.0.1"
 k3d_cluster_lb_port = 80
