@@ -1,4 +1,3 @@
-provider "docker" {}
 provider "random" {}
 
 resource "random_integer" "port" {
@@ -20,8 +19,18 @@ resource "null_resource" "cluster" {
     k3s_version   = var.k3s_version
   }
   provisioner "local-exec" {
-    command = "k3d cluster create ${each.key} --agents ${var.agent_count} --servers ${var.server_count} --api-port ${var.k3d_cluster_ip}:${var.k3d_cluster_port} --port ${local.host_lb_port}:${var.k3d_cluster_lb_port}@loadbalancer --image rancher/k3s:${var.k3s_version}"
+    command = "k3d cluster create ${each.key} --agents ${var.agent_count} --servers ${var.server_count} -p '8901:30081@agent:0' -p '8902:30082@agent:0'"
   }
+}
+
+resource "null_resource" "cluster_config" {
+  for_each = toset(var.k3d_cluster_name)
+  provisioner "local-exec" {
+    command = "k3d kubeconfig get ${each.key} > .kube/${each.key}-config"
+  }
+  depends_on = [
+    null_resource.cluster
+  ]
 }
 
 resource "null_resource" "cluster_delete" {
@@ -30,12 +39,4 @@ resource "null_resource" "cluster_delete" {
     command = "k3d cluster delete ${each.key}"
     when    = destroy
   }
-}
-
-data "docker_network" "k3d" {
-  for_each = toset(var.k3d_cluster_name)
-  depends_on = [
-    null_resource.cluster
-  ]
-  name = "k3d-${each.key}"
 }

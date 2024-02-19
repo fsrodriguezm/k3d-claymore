@@ -1,29 +1,72 @@
+provider "helm" {
+  kubernetes  {
+    config_path    = ".kube/claymore-config"
+    config_context = "k3d-claymore"
+  }
+}
+
+provider "kubernetes" {
+  config_path    = ".kube/claymore-config"
+  config_context = "k3d-claymore"
+}
+
+resource "kubernetes_namespace" "cattle_system" {
+  metadata {
+    name = "cattle-system"
+  }
+  depends_on = [ null_resource.cluster ]
+}
+
 resource "helm_release" "rancher" {
-  name       = "rancher"
-  repository = "https://releases.rancher.com/server-charts/latest"
   chart      = "rancher"
-  version    = "2.8.0-rc3"
+  name       = "rancher"
+  namespace  = "cattle-system"
+  repository = "https://releases.rancher.com/server-charts/latest"
 
-  create_namespace = true
-  namespace = "cattle-system"
+  set {
+    name  = "ingress.enabled"
+    value = false
+  }
 
-#   values = [
-#     "${file("values.yaml")}"
-#   ]
+  set {
+    name  = "replicas"
+    value = 1
+  }
 
-#   set {
-#     name  = "cluster.enabled"
-#     value = "true"
-#   }
+  set {
+    name  = "tls"
+    value = "external"
+  }
+  depends_on = [ kubernetes_namespace.cattle_system ]
+}
 
-#   set {
-#     name  = "metrics.enabled"
-#     value = "true"
-#   }
-
-#   set {
-#     name  = "service.annotations.prometheus\\.io/port"
-#     value = "9127"
-#     type  = "string"
-#   }
+resource "kubernetes_service" "rancher_nodeport" {
+  metadata {
+    name = "rancher-nodeport"
+    namespace = "cattle-system"
+    labels = {
+      "app" = "rancher"
+    }
+  }
+  spec {
+    selector = {
+      "app" = "rancher"
+    }
+    port {
+      name        = "http"
+      node_port   = 30080
+      port        = 80
+      protocol    = "TCP"
+      target_port = 80
+    }
+    port {
+      name        = "https-internal"
+      node_port   = 30081
+      port        = 443
+      protocol    = "TCP"
+      target_port = 443
+    }
+    type = "NodePort"
+  }
+  depends_on = [ kubernetes_namespace.cattle_system, helm_release.rancher ]
 }
