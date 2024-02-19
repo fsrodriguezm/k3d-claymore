@@ -5,3 +5,4 @@ terraform.tfstate*
 *.pem
 .DS_Store
 helm-charts/**/charts
+.kube
