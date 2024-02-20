@@ -10,11 +10,11 @@ provider "kubernetes" {
   config_context = "k3d-claymore"
 }
 
-# resource "kubernetes_namespace" "cattle_system" {
-#   metadata {
-#     name = "cattle-system"
-#   }
-# }
+resource "kubernetes_namespace" "cattle_system" {
+  metadata {
+    name = "cattle-system"
+  }
+}
 
 resource "helm_release" "rancher" {
   chart      = "rancher"
@@ -36,7 +36,7 @@ resource "helm_release" "rancher" {
     name  = "tls"
     value = "external"
   }
-  # depends_on = [ kubernetes_namespace.cattle_system ]
+  depends_on = [ kubernetes_namespace.cattle_system ]
 }
 
 resource "kubernetes_service" "rancher_nodeport" {
