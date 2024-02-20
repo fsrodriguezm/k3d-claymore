@@ -30,6 +30,10 @@ It takes about 3 minutes for the helm chart to deploy.
 ```
 make rancher-init
 ```
+You could also just run make and it will initialize the cluster and rancher deployment with one command.
+```
+make
+```
 3. Access Rancher </br>
 https://localhost:8901/dashboard/
 
