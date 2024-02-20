@@ -16,6 +16,7 @@ resource "kubernetes_namespace" "cattle_system" {
   }
 }
 
+# https://github.com/rancher/rancher/tree/release/v2.9/chart
 resource "helm_release" "rancher" {
   chart      = "rancher"
   name       = "rancher"
