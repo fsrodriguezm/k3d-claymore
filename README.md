@@ -29,8 +29,8 @@ make cluster-init
 ```
 make rancher-init
 ```
-3. Access Rancher
-   https://localhost:8901/
+3. Access Rancher </br>
+https://localhost:8901/dashboard/
 
 ## Reference
 
