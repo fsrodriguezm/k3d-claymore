@@ -21,7 +21,17 @@ This repo is for creating a local k3d cluster with two nodes bundled with an ins
 * kubectl v1.28.2
 * helm v3.9.3
 
-## Read more
+## Get Started
+1. Deploy a K3D cluster
+```
+make cluster-init
+```
+2. Deploy Rancher Helm Chart
+```
+make rancher-init
+```
+3. Access Rancher
+   https://localhost:8901/
 
 ## Reference
 
