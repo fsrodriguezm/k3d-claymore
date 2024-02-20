@@ -11,7 +11,7 @@
          (O)  .M'                                       ,V                                                
           bmmmd'                                     OOb"                                                 
 ```
-This repo is for creating a local k3d cluster with two nodes and rancher using Helm.
+This repo is for creating a local k3d cluster with two nodes bundled with an installation of rancher using Helm.
 
 ## Requirements
 * terraform v1.6.3
