@@ -1,17 +1,19 @@
 .MAIN: init
 
 init:
-	cd k3d-cluster
-	terraform init
-	terraform apply --auto-approve
-	cd ..
-	cd rancher
-	terraform init
-	terraform apply --auto-approve
+	cd k3d-cluster && terraform init
+	cd k3d-cluster && terraform apply --auto-approve
+	cd rancher && terraform init
+	cd rancher && terraform apply --auto-approve
+
+cluster-init:
+	cd k3d-cluster && terraform init
+	cd k3d-cluster && terraform apply --auto-approve
+
+rancher-init:
+	cd rancher && terraform init
+	cd rancher && terraform apply --auto-approve
 
 destroy:
-	cd rancher
-	terraform destroy --auto-approve
-	cd ..
-	cd k3d-cluster
-	terraform destroy --auto-approve
+	cd rancher && terraform destroy --auto-approve
+	cd k3d-cluster && terraform destroy --auto-approve
