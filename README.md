@@ -25,7 +25,8 @@ This repo is for creating a local k3d cluster with two nodes bundled with an ins
 ```
 make cluster-init
 ```
-2. Deploy Rancher Helm Chart
+2. Deploy Rancher Helm Chart </br>
+It takes about 3 minutes for the helm chart to deploy.
 ```
 make rancher-init
 ```
