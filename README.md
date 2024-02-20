@@ -14,12 +14,11 @@
 This repo is for creating a local k3d cluster with two nodes bundled with an installation of rancher using Helm.
 
 ## Requirements
-* terraform v1.6.3
-* docker v1.27.4-k3s1
+* docker desktop v4.21.0
+* terraform v1.0.11
 * k3d v5.6.0
-* k3s v1.27.4-k3s1
 * kubectl v1.28.2
-* helm v3.9.3
+* helm v3.14.0
 
 ## Get Started
 1. Deploy a K3D cluster
