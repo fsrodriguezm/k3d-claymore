@@ -16,3 +16,4 @@ rancher-init:
 
 destroy:
 	cd k3d-cluster && terraform destroy --auto-approve
+	rm -f rancher/terraform.tfstate*
