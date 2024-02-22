@@ -37,7 +37,14 @@ make
 3. Access Rancher </br>
 https://localhost:8901/dashboard/
 
-4. Destroy the cluster if needed
+4. Use the K3D cli to stop or start the cluster
+```
+k3d cluster start claymore
+```
+```
+k3d cluster stop claymore
+```
+5. Destroy the cluster if needed
 ```
 make destroy
 ```
